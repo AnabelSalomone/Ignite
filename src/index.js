@@ -8,11 +8,11 @@ import reducer from "./store/index";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-// Create store only accepts two parameters: reducer and middleware
-// so we use compose to "compose" every middleware. But to apply any middleware
-// we need to use applyMiddleware
-// the reducer will be charged to update the state of the store when an action
-// is triggered
+// Create store only accepts two parameters: reducer (which contains the store) and just
+// one middleware so we use compose to "compose" every middleware. But to apply any middleware
+// we need to use "applyMiddleware"
+//
+// the reducer will be in charg of the update of the state of the store when an action is triggered
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 
 ReactDOM.render(
