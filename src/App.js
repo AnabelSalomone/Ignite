@@ -1,15 +1,20 @@
 import { useEffect } from "react";
-import { finalUrl } from "./utils/api";
+import useAPI from "./hooks/useAPI";
 import { useDispatch } from "react-redux";
 import { loadGames } from "./store/actions/GamesActions";
 
 function App() {
   const dispatch = useDispatch();
+  const {allGamesUrl, getDlcUrl} = useAPI();
 
   useEffect(() => {
-    dispatch(loadGames(finalUrl));
+    dispatch(loadGames(allGamesUrl));
   }, []);
-  return <h1>Games</h1>;
+  return (
+    <div>
+      <h1>Games</h1>
+    </div>
+  );
 }
 
 export default App;
